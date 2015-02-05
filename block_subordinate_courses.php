@@ -17,7 +17,7 @@ class block_subordinate_courses extends block_list {
 
         $manager_field = $DB->get_record('user_info_field', array('shortname' => 'manager'));
 
-        return $DB->get_records_sql("SELECT * FROM {user} user INNER JOIN {user_info_data} info_data ON info_data.userid = user.id
+        return $DB->get_records_sql("SELECT user.* FROM {user} user INNER JOIN {user_info_data} info_data ON info_data.userid = user.id
 
             WHERE info_data.fieldid = :fieldid AND  info_data.data = :data",
             array('fieldid' => $manager_field->id, 'data' => $USER->username));
