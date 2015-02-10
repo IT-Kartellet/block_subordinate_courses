@@ -72,6 +72,9 @@ class block_subordinate_courses extends block_list {
                 ksort($years);
 
                 foreach ($years as $year => $courses) {
+					if ($year == 1970) {
+						$year = "Date not specified";
+					}
                     $output .= "<div class='year expandable indent'><h3>" . $year . "</h3>";
 
                     foreach ($courses as $course) {
